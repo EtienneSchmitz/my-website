@@ -4,14 +4,19 @@ import "../styles/globals.css";
 import React from "react";
 import Head from "next/head";
 import { ThemeProvider } from "@material-ui/core/styles";
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
 
 import Header from "../src/components/Header";
 import theme from "../src/theme";
 
-export const cache = createCache({ key: 'css', prepend: true });
+import { IntlProvider } from "react-intl";
+import { useRouter } from "next/router";
+// import all locales through barrel file
+import * as locales from "../locale";
+
+export const cache = createCache({ key: "css", prepend: true });
 
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
@@ -21,6 +26,11 @@ function MyApp({ Component, pageProps }) {
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);
+
+  const router = useRouter();
+  const { locale, defaultLocale, pathname } = router;
+  const localeCopy = locales[locale];
+  const messages = localeCopy[pathname];
 
   return (
     <CacheProvider value={cache}>
@@ -35,9 +45,15 @@ function MyApp({ Component, pageProps }) {
       <ThemeProvider theme={theme}>
         <Header />
         <CssBaseline />
-        <Component {...pageProps} />
+        <IntlProvider
+          locale={locale}
+          defaultLocale={defaultLocale}
+          messages={messages}
+        >
+          <Component {...pageProps} />
+        </IntlProvider>
       </ThemeProvider>
-      </CacheProvider>
+    </CacheProvider>
   );
 }
 
