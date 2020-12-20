@@ -8,11 +8,14 @@
     "start": "next start"
   },
   "dependencies": {
+    "autoprefixer": "^10.1.0",
     "fontsource-roboto": "^3.1.5",
     "next": "10.0.3",
+    "postcss": "^8.2.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-intl": "^5.10.9"
+    "react-intl": "^5.10.9",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.14",

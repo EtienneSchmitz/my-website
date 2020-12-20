@@ -1,15 +1,17 @@
 import "fontsource-roboto";
+
 import "../styles/globals.css";
+
 
 import React from "react";
 import Head from "next/head";
 
-import Header from "../src/components/Header";
+import Header from "../components/Header";
 
 import { IntlProvider } from "react-intl";
 import { useRouter } from "next/router";
 // import all locales through barrel file
-import * as locales from "../src/locale";
+import * as locales from "../locale";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
