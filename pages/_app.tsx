@@ -2,7 +2,6 @@ import "fontsource-roboto";
 
 import "../styles/globals.css";
 
-
 import React from "react";
 import Head from "next/head";
 
@@ -29,12 +28,12 @@ function MyApp({ Component, pageProps }) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
-      <Header />
       <IntlProvider
         locale={locale}
         defaultLocale={defaultLocale}
         messages={messages}
       >
+        <Header />
         <Component {...pageProps} />
       </IntlProvider>
     </React.Fragment>

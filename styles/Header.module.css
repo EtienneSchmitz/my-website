@@ -1,0 +1,26 @@
+.text_logo {
+  font-family: "JetBrains Mono", monospace;
+  @apply text-white;
+}
+
+/* TODO : Make better code */
+@screen sm {
+  .text_logo {
+    @apply text-xl;
+  }
+}
+
+@screen lg {
+  .text_logo {
+    @apply text-xl;
+  }
+}
+
+.category {
+  font-family: "Roboto", sans-serif;
+}
+
+/*
+ font-family: 'Lato', sans-serif;
+ font-family: 'Roboto', sans-serif;
+*/
