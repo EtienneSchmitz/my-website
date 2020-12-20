@@ -15,7 +15,7 @@ export default function Header() {
           <a>Étienne SCHMITZ</a>
         </Link>
       </div>
-      <div className="flex justify-between w-3/4">
+      <div className="flex justify-between w-3/5">
         <Category
           icon={<AiOutlineInfoCircle />}
           name="Mes informations"
